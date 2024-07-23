@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Shrihari Portfolio</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #main {
+            font-weight: bolder;
+            font-size: 24px;
+            color: black;
+            text-transform: uppercase;
+            background: black;
+            -webkit-background-clip: text;
+            color: transparent;
+            /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+        }
+
+        #navbar_sec {
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            color: black;
+            z-index: 10;
+            background: linear-gradient(to right, rgb(103, 121, 174), rgb(40, 85, 222))
+        }
+
+        #navbar_sec .navbar-nav .nav-link {
+            font-weight: bold;
+            color: white !important;
+            background: #333;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .sect1 {
+            min-height: 700px;
+            border: 0.1px solid white;
+            width: 100%;
+            padding-top: 70px;
+            margin-top: 10px;
+        }
+
+        .sect {
+            min-height: 300px;
+            border: 0.1px solid white;
+            width: 100%;
+            padding-top: 70px;
+            margin-top: 0px;
+        }
+
+        .sect2 {
+            min-height: 500px;
+            border: 0.1px solid white;
+            width: 100%;
+            padding-top: 0px;
+            margin-top: 0px;
+
+        }
+
+        #about {
+            min-height: 300px;
+            border: 0.1px solid white;
+            width: 100%;
+            padding-top: 70px;
+            margin-top: 0px;
+        }
+
+        #home {
+            background-image: url("https://static-00.iconduck.com/assets.00/web-developer-illustration-2005x2048-fal2biag.png");
+            background-size: 400px;
+            background-repeat: no-repeat;
+            padding-left: 20px;
+            padding-top: 60px;
+            background-position: 84% 60%;
+            background-color: aquamarine;
+            clip-path: polygon(100% 0, 100% 92%, 50% 100%, 0 92%, 0 0);
+        }
+
+        .info {
+            margin-top: 150px;
+            margin-left: 0px;
+            text-align: left;
+        }
+
+        .small-info {
+            font-size: 30px;
+            color: black;
+        }
+
+        .big-info {
+            font-size: 50px;
+        }
+
+        #name1 {
+            font-weight: bold;
+            color: red;
+            -webkit-text-stroke: 1px #0a1412;
+        }
+
+        #name2 {
+            font-weight: bold;
+            -webkit-text-stroke: 1px #0a1412;
+            color: royalblue;
+        }
+
+        #butt {
+            text-decoration: none;
+            border: none;
+            background-color: rgb(191, 237, 99);
+            margin: 30px;
+            height: 40px;
+            width: 100px;
+            margin-left: 7px;
+            border-radius: 5px;
+            font-weight: bolder;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        #butt:hover {
+            background-color: rgb(199, 84, 201);
+        }
+
+        #butt a {
+            color: black;
+            text-decoration: none;
+        }
+
+        #butt a:hover {
+            color: white;
+        }
+
+        .resume {
+            columns: black;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+
+
+        #skills {
+            height: auto;
+            padding-top: 50px;
+            width: 100%;
+
+        }
+
+        .aboutinfo {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0px;
+        }
+
+        .im {
+            display: inline-block;
+            margin: 40px 20px 0 20px;
+        }
+
+        .abinfo {
+            flex: 1;
+            text-align: justify;
+            text-justify: inter-word;
+            padding: 0 40px;
+        }
+
+        .a-title {
+            text-align: center;
+            font-weight: bolder;
+            padding-top: 30px;
+            font-size: 40px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .a-title span {
+            font-weight: bolder;
+            font-size: 40px;
+            color: orange;
+        }
+
+        .personalinfo {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .firstP,
+        .secondP {
+            margin-top: 0px;
+            display: inline-block;
+        }
+
+        .firstP {
+            margin-left: 70px;
+        }
+
+        .secondP {
+            margin-left: 200px;
+        }
+
+        .firstP p,
+        .secondP p {
+            font-size: 17px;
+            font-weight: bolder;
+        }
+
+        .firstP p span,
+        .secondP p span {
+            color: orange;
+            font-size: 17px;
+        }
+
+        .skill-page {
+            display: flex;
+            flex-wrap: wrap;
+            height: 500px;
+            width: 100%;
+            padding-top: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 0px;
+            background-color: #e0e0e0;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .skill-page-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            justify-content: center;
+            padding: 40px;
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
+            box-shadow: 0 0 12px #afafaf;
+            transition: transform 0.3s ease;
+
+
+        }
+
+
+        .skill-page-info:hover {
+            transform: scale(1.1);
+        }
+
+        .skill-page-info img {
+            max-width: 150%;
+            height: auto;
+        }
+
+        .skill-page-info h5 {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bolder;
+        }
+
+
+
+
+        @media (min-width: 1200px) {
+            .info {
+                margin-top: 150px;
+                margin-left: 100px;
+            }
+
+            .big-info {
+                font-size: 60px;
+            }
+
+            .small-info {
+                font-size: 35px;
+            }
+
+            .skill-page-info {
+                width: 170px;
+                height: 170px;
+            }
+
+            .skill-page-info h5 {
+                font-size: 20px;
+            }
+        }
+
+        .skills_gif_container div {
+            background: #fff;
+            border-radius: 40px;
+            box-shadow: 0 0 12px #afafaf;
+            flex-wrap: wrap;
+            padding: auto;
+            margin: 10px;
+            height: 82px;
+            width: 64%;
+        }
+
+        .skills_gif_container div p {
+            text-align: center;
+            padding-top: 10px;
+            padding: 10px;
+        }
+
+        .skills_gif_container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0 30px;
+            width: 100%;
+        }
+
+        footer h6 {
+            align-items: center;
+            display: flex;
+            font-weight: bolder;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #projects {
+            height: auto;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        .project_info {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+            gap: 60px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 17rem;
+            position: relative;
+            transition: transform 0.3s;
+            box-shadow: 0 0 12px #afafaf;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            padding: 0 10px;
+        }
+
+        .btn {
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+            color: black;
+            text-align: center;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .btn:hover {
+            background-color: orange;
+            color: white;
+        }
+
+        #contact {
+            width: 100%;
+            text-align: center;
+            height: 700px;
+        }
+
+        #contact h1 {
+            padding-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 550px;
+            background-color: #f4f4f4;
+            justify-content: center;
+        }
+
+        .c-me {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .lastI {
+            width: 80%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .p-info {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            height: 500px;
+            margin-right: 6%;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .user_message_form h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .user_message_form h3 span {
+            color: royalblue;
+        }
+
+        .name_val, .username_val, .user_msg {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            padding-left: 13%;
+            align-items: flex-start;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .sen {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .submit_msg {
+            padding: 10px 20px;
+            margin-left: 13%;
+            align-items: center;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit_msg:hover {
+            background-color: #0056b3;
+        }
+
+        .footer{
+            height: 20px;
+            width: 100%;
+        }
+
+        .footer h6{
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="navbar_sec">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#" id="main">Shrihari | Portfolio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <section id="home" class="sect1">
+        <div class="home-section">
+            <div class="info">
+                <div class="small-info">Hi my name is </div>
+                <div class="big-info" id="name1" data-aos="slide-right">Shrihari Waykule</div>
+                <div class="small-info">I am</div>
+                <div class="big-info" id="name2">Front End Developer </div>
+                <div><button id="butt"><a href="Shrihari_Waykule_Resume.pdf" target="_blank">RESUME</a></button></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="sect">
+        <div class="aboutinfo">
+            <div class="im">
+                <img src="https://portfolio-olive-xi-35.vercel.app/static/media/about_me_img.5a41b5e8a24955786f31.png">
+            </div>
+            <div class="abinfo">
+                <h1 class="a-title">About <span>Me</span></h1>
+                👋 I am Shrihari Waykule, a Computer Engineering graduate from Sinhgad Academy of Engineering, Pune,
+                with a strong background in web development. 🎓 I have always been fascinated by Knowledge 🧠 and
+                learning new things. 💡 I have developed several successful projects, including a garbage collection
+                app, a YouTube-like media website, and a movie exploration platform using the MERN stack. 🌟 With
+                hands-on experience from a Web Development Internship at Veritech Software Services and a solid
+                foundation in Java,
+                JavaScript, ReactJS, and SQL, I am eager to contribute to innovative projects in a dynamic tech
+                environment. 🚀
+                <div class="personalinfo">
+                    <div class="firstP">
+                        <p><span>Age</span> : 21</p>
+                        <p><span>Gender</span> : male</p>
+                        <p><span>Languages</span> : Marathi/Hindi/English</p>
+                    </div>
+                    <div class="secondP">
+                        <p><span>Phone</span> : +91-9404519764</p>
+                        <p><span>Email</span> : shriwaykule64@gmail.com</p>
+                        <p><span>Address</span> : Pune, India - 411048</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="sect2">
+        <h1 class="a-title">Skills <span>Section</span></h1>
+        <div class="skills_gif_container">
+            <div>
+                <p>⚡Creating user-friendly web interfaces with HTML, CSS, and JavaScript</p>
+            </div>
+            <div>
+                <p>⚡Continuously learning and adapting to new web technologies and frameworks</p>
+            </div>
+            <div>
+                <p>⚡Enhancing user experience through interactive animations and effects</p>
+            </div>
+        </div>
+        <div class="skill-page">
+            <div class="skill-page-info">
+                <img src="https://portfolio-olive-xi-35.vercel.app/static/media/java_logo.995ab6300bf78bb70576.png" />
+                <h5 class="skill-name">Java</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="https://portfolio-olive-xi-35.vercel.app/static/media/resct_logo.2a47dc9585850de38ab0.png" />
+                <h5 class="skill-name">React</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">HTML</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">CSS</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">JavaScript</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">ReactJS</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">SQL</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">GitHub</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">Boostrap</h5>
+            </div>
+            <div class="skill-page-info">
+                <img src="" />
+                <h5 class="skill-name">Netlify</h5>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects">
+        <h1 class="a-title" style="margin-top: 20px">Projects <span>Section</span></h1>
+        <div>
+            <div class="project_info">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH7Zzq8Nfnm9bZM7G3TMvK5H3_bBYOjEGuXg&s"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">YT Media</h5>
+                        <div class="btn-container">
+                            <a href="#" class="btn">Live</a>
+                            <a href="#" class="btn">Project Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuvg0Vw6vB1TWyD8zSa5qsVo1XZxcsAGs9rQ&s" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Movix</h5>
+                        <div class="btn-container">
+                            <a href="#" class="btn">Live</a>
+                            <a href="#" class="btn">Project Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://w7.pngwing.com/pngs/30/252/png-transparent-computer-icons-password-strength-padlock-text-technic-symbol-thumbnail.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Password Generator</h5>
+                        <div class="btn-container">
+                            <a href="#" class="btn">Live</a>
+                            <a href="#" class="btn">Project Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://w7.pngwing.com/pngs/670/265/png-transparent-checkmark-done-exam-list-pencil-todo-xomo-basics-icon-thumbnail.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">TO DO APP</h5>
+                        <div class="btn-container">
+                            <a href="#" class="btn">Live</a>
+                            <a href="#" class="btn">Project Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://portfolio-olive-xi-35.vercel.app/static/media/calci_img.ed158079ef118fa310e1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">News Web</h5>
+                        <div class="btn-container">
+                            <a href="#" class="btn">Live</a>
+                            <a href="#" class="btn">Project Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h1 class="a-title" style="margin-top: 20px">Contact <span>Section</span></h1>
+        <div class="content">
+            <div class="c-me">
+                <img class="lastI" src="https://portfolio-olive-xi-35.vercel.app/static/media/contact_me_imgs.00b64982495406fa90d8.png" alt="Contact Image" />
+            </div>
+            <div class="p-info">
+                <form class="user_message_form">
+                    <h3>Contact <span> Me </span></h3>
+                    <div class="name_val">
+                        <label for="name1">Name</label>
+                        <input type="text" name="name" autocomplete="off" value="">
+                        <label for="name1">Email-id</label>
+                        <input type="email" name="email" autocomplete="off" value="">
+                        <label for="name1">Message</label>
+                        <textarea name="message" id="user_text_area" cols="30" rows="3"></textarea>
+                    </div>
+                    <div class="sen">
+                        <button class="submit_msg" id="user" onclick="alert('Your message sent Successfully')">Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="footer">
+        <h6>Made with ❤️ by Shrihari</h6>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+        });
+    </script>
+</body>
+
+</html>
